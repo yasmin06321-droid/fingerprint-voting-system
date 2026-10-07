@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Election Official - Fingerprint Voting System</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(90deg, #34495e, #2c3e50);
+            color: #ecf0f1;
+            width: 100%;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+        }
+        header:hover {
+            background: linear-gradient(90deg, #2c3e50, #34495e);
+        }
+        nav {
+            background: linear-gradient(90deg, #34495e, #2c3e50);
+            padding: 0.75rem 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: background 0.3s ease;
+        }
+        nav a {
+            color: white;
+            margin: 0 1.2rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #74ebd5;
+        }
+        main {
+            margin-top: 3rem;
+            background: white;
+            padding: 1.5rem 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+            width: 420px;
+            max-width: 95%;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+            border: 5px solid #3498db;
+        }
+        main:hover {
+            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+        }
+        .login-container {
+            text-align: left;
+        }
+        .login-container h2 {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #34495e;
+            font-size: 1rem;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 0.6rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #bdc3c7;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            border-color: #2980b9;
+            outline: none;
+            box-shadow: 0 0 12px rgba(41, 128, 185, 0.5);
+        }
+        .login-container button {
+            background-color: #2980b9;
+            color: rgb(151, 112, 112);
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.4);
+        }
+        .login-container button:hover {
+            background-color: #1c5980;
+            box-shadow: 0 6px 18px rgba(28, 89, 128, 0.7);
+        }
+        #loginStatus {
+            margin-top: 1rem;
+            color: rgb(27, 7, 7);
+            font-weight: 600;
+            min-height: 1.5rem;
+        }
+        .dashboard {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 2rem;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>Election Official - Fingerprint Voting System</header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="registervoter.html">Register/Voter</a>
+        <a href="electionofficial.html">Election Official</a>
+    </nav>
+    <main>
+        <div class="register-container">
+            <h2>Election Official register</h2>
+            <a href="official_register.php">register here</a>
+            <script method="POST" action="official_login.php">
+        </script>
+        <div class="login-container" style="display:none;">
+            <h3>Election Official login</h3>
+            <a href="official_login.php">login here</a>
+            <script method="POST" action="official_dashboard.php">
+        </script>
+            <form id="loginForm" method="POST" action="official_login.php">
+                <div class="card" id="logincard">
+                    
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label for="password">Password:</label><br />
+                    <input type="password" id="password" name="password" required />
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+            <div id="loginStatus" style="margin-top: 1rem; color: red;"></div>
+        </div>
+        <h2>Election Official dashboard</h2>
+        <script method="POST" action="official_dashboard.php">
+        </script>
+        <div class="dashboard" style="display:none;">
+            <p>Welcome, Election Official.</p>
+            <p>This is a placeholder dashboard for managing the election.</p>
+            <p>Features like viewing votes, managing candidates, and election settings can be added here.</p>
+        </div>
+    </main>
+        <script>
+            const loginForm = document.getElementById('loginForm');
+            const loginStatus = document.getElementById('loginStatus');
+            const dashboard = document.querySelector('.dashboard');
+            const loginContainer = document.querySelector('.login-container');
+            const registerForm = document.getElementById('registerForm');
+            const registerContainer = document.querySelector('.register-container');
+            const registerError = document.getElementById('registerError');
+
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const username = loginForm.username.value.trim();
+                const password = loginForm.password.value.trim();
+
+                // Simulated login check (replace with real authentication in production)
+                if (username === 'admin' && password === 'password123') {
+                    loginStatus.textContent = '';
+                    loginContainer.style.display = 'none';
+                    dashboard.style.display = 'block';
+                } else {
+                    loginStatus.textContent = 'Invalid username or password.';
+                }
+            });
+
+            registerForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(registerForm);
+
+                fetch('official_register.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    // Check if registration was successful by searching for success message in response
+                    if (data.includes('Official registration successful')) {
+                        alert('Registration successful! Please login.');
+                        registerContainer.style.display = 'none';
+                        loginContainer.style.display = 'block';
+                        registerError.textContent = '';
+                    } else {
+                        // Extract error message from response (simple approach)
+                        const errorMatch = data.match(/<div class="alert alert-danger">(.*?)<\/div>/);
+                        if (errorMatch && errorMatch[1]) {
+                            registerError.textContent = errorMatch[1];
+                        } else {
+                            registerError.textContent = 'Registration failed. Please try again.';
+                        }
+                    }
+                })
+                .catch(error => {
+                    registerError.textContent = 'Error submitting form. Please try again.';
+                });
+            });
+        </script>
+</body>
+</html>
